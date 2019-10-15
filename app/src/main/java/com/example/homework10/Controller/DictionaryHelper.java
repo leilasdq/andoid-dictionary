@@ -27,7 +27,7 @@ public class DictionaryHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) { }
+    public void onCreate(SQLiteDatabase sqLiteDatabase) { copyDatabase(); }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
@@ -37,7 +37,7 @@ public class DictionaryHelper extends SQLiteOpenHelper {
         String filePath = DB_PATH + DATABASE_NAME;
 
         try {
-            sqLiteDatabase = SQLiteDatabase.openDatabase(filePath, null, SQLiteDatabase.OPEN_READWRITE);
+            sqLiteDatabase = SQLiteDatabase.openDatabase(filePath, null, SQLiteDatabase.OPEN_READONLY);
         } catch (SQLException e){ }
 
         if (sqLiteDatabase==null) copyDatabase();
@@ -65,8 +65,8 @@ public class DictionaryHelper extends SQLiteOpenHelper {
         }
     }
 
-    private void openDatabase(){
+    public void openDatabase(){
         String filePath = DB_PATH + DATABASE_NAME;
-        SQLiteDatabase.openDatabase(filePath, null, SQLiteDatabase.OPEN_READWRITE);
+        SQLiteDatabase.openDatabase(filePath, null, SQLiteDatabase.OPEN_READONLY);
     }
 }

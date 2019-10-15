@@ -1,9 +1,10 @@
-package com.example.homework10;
+package com.example.homework10.Controller;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+
+import com.example.homework10.R;
 
 public class MainActivity extends SingleFragmentActivity {
 
