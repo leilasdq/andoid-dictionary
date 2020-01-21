@@ -15,7 +15,7 @@ public class WoldsRepository {
     private Context mContext;
     private  static  SQLiteDatabase mSQLiteDatabase;
     static DictionaryHelper mDictionaryHelper;
-    public static final String TABLE_NAME = "\"Dictionary\"";
+    public static final String TABLE_NAME = "Dictionary";
 
     public static WoldsRepository getInstance(Context context) {
         if (ourInstance==null){
@@ -29,16 +29,6 @@ public class WoldsRepository {
 
         mDictionaryHelper = new DictionaryHelper(mContext);
         mSQLiteDatabase = mDictionaryHelper.getReadableDatabase();
-        try {
-            mDictionaryHelper.checkDatabase();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            mDictionaryHelper.openDatabase();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public List<Dictionary> getAllWorlds(){
